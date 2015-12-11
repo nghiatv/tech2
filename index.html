@@ -27,6 +27,11 @@
     <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection"/>
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="animate.css" type="text/css">
+
+
+    <!--Captcha-->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
 
@@ -44,8 +49,8 @@
                                                                                        style="color: rgba(33, 23, 34, 0.96)"></i></a>
 
                     <div class="right hide-on-med-and-down">
-                        <a href="" class="waves-effect waves-light btn-flat login" id="signup-navbar">login</a>
-                        <a href="" class="waves-effect waves-light btn">sign up</a>
+                        <a href="#modal1" class="waves-effect waves-light btn-flat login modal-trigger" id="signup-navbar" onclick="show_form_login1()">login</a>
+                        <a href="#modal1" class="waves-effect waves-light btn modal-trigger" onclick="show_form_register1()">sign up</a>
                     </div>
                     <ul class="right hide-on-med-and-down">
                         <li><a class="tab" href="">Thực tập</a></li>
@@ -58,8 +63,8 @@
                         <li><a href="">Docs</a></li>
                         <li><a href="">Pricing</a></li>
                         <li><a href="">About</a></li>
-                        <a href="" class="waves-effect waves-light btn-flat btn" id="signup-mobile-navbar">sign up</a>
-                        <a href="" class="waves-effect waves-light btn">login</a>
+                        <a href="#modal1" class="waves-effect waves-light btn-flat btn modal-trigger" id="signup-mobile-navbar" onclick="show_form_register1()">sign up</a>
+                        <a href="#modal1" class="waves-effect waves-light btn modal-trigger" onclick="show_form_login1()">login</a>
                     </ul>
                 </div>
             </div>
@@ -86,13 +91,13 @@
             </article>
         </div>
         <div class="col s12">
-            <div id="main_row_2" class="row">
+            <div class="row">
 
 
-                <div class="col l6 push-l3 m6 push-m3 s8 push-s2 " id="center-title">
+                <div class="col l6 push-l3 m6 push-m3 s12 center-align " id="center-title">
                     <h3 class="center">Web cơ bản HTML5, CSS3 và Javascript</h3>
 
-                    <p class="center">HTML, CSS và Javascript là bộ 3 ngôn ngữ cần thiết cho mọi web developer.
+                    <p  class="center hide-on-small-and-down">HTML, CSS và Javascript là bộ 3 ngôn ngữ cần thiết cho mọi web developer.
                         Khóa học này sẽ cung cấp cho bạn những kiến thức cơ bản,
                         cần thiết nhất để bắt đầu trên con đường trở thành một lập trình viên web chuyên nghiệp.</p>
 
@@ -105,23 +110,23 @@
                 <div class="container">
                     <div class="row">
                         <div class="col s12 m3 dashboard_item">
-                            <h3 class="center">40+</h3>
+                            <h3 class="center"><strong>40+</strong></h3>
 
                             <p class="center">Bai hoc truc tuyen</p>
                         </div>
                         <div class="col s12 m3 dashboard_item">
-                            <h3 class="center">20+</h3>
+                            <h3 class="center"><strong>20+</strong></h3>
 
                             <p class="center">Thoi luong video</p></div>
                         <div class="col s12 m3 dashboard_item">
-                            <h3 class="center">80+</h3>
+                            <h3 class="center"><strong>80+</strong></h3>
 
                             <p class="center">Vi du cu the</p>
                         </div>
                         <div class="col s12 m3 dashboard_item">
-                            <h3 class="center">80+</h3>
+                            <h3 class="center"><strong>50+</strong></h3>
 
-                            <p class="center">Vi du cu the</p>
+                            <p class="center">tips</p>
                         </div>
                     </div>
                 </div>
@@ -138,14 +143,12 @@
         </div>
     </div>
     <div id="main_row_4" class="row container">
-        <div id="mr4-left" class="col s12 m8">
-            <!--<nav>-->
-            <!--<div class="nav-wrapper">-->
-            <!--<div class="col s12">-->
-            <!--<a href="#!" class="page-title" style="color: black">Giáo Trình</a>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--</nav>-->
+        <div id="mr4_left" class="col s12 m8">
+            <div class="mbl row">
+                <div class="video-container">
+                    <iframe width="854" height="480" src="https://www.youtube.com/embed/k3Y_iY0bEco" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
             <div class="mbl row">
                 <div class="card white">
                     <div class="card-content">
@@ -217,7 +220,12 @@
                     </li>
                 </ul>
             </div>
-            <div class="mbl row">
+
+
+            <div class="mbl row center-align ">
+                <button type="button" class="waves-effect waves-light btn-large white green-text show_more " onclick="show_more()"><i class="material-icons left">cloud</i>Xem toàn bộ nội dung khóa học</button>
+            </div>
+            <div class="mbl row hide">
                 <div class="card white">
                     <div class="card-content">
                         <div class="card-title"><h5>3. Image & Link</h5></div>
@@ -260,12 +268,141 @@
                     </li>
                 </ul>
             </div>
-            <div class="mbl_row">
-                <a href=""></a>
+
+
+            <div class="mbl row hide ">
+                <div class="card white">
+                    <div class="card-content">
+                        <div class="card-title"><h5>3. Image & Link</h5></div>
+                    </div>
+
+                </div>
+
+                <ul class="mbl_content collapsible  " data-collapsible="expandable">
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">filter_drama</i>Chèn ảnh vào trang web
+                        </div>
+                        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">place</i>Các loại đường dẫn</div>
+                        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">whatshot</i>Styling image</div>
+                        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                    </li>
+
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">whatshot</i>Chèn link vào trang web
+                        </div>
+                        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">whatshot</i>Pseudo Class</div>
+                        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">whatshot</i>Pseudo Element</div>
+                        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">whatshot</i>BT: Thực hành Link + Image
+                        </div>
+                        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="mbl row hide">
+                <div class="card white">
+                    <div class="card-content">
+                        <div class="card-title"><h5>3. Image & Link</h5></div>
+                    </div>
+
+                </div>
+
+                <ul class="mbl_content collapsible  " data-collapsible="expandable">
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">filter_drama</i>Chèn ảnh vào trang web
+                        </div>
+                        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">place</i>Các loại đường dẫn</div>
+                        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">whatshot</i>Styling image</div>
+                        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                    </li>
+
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">whatshot</i>Chèn link vào trang web
+                        </div>
+                        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">whatshot</i>Pseudo Class</div>
+                        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">whatshot</i>Pseudo Element</div>
+                        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">whatshot</i>BT: Thực hành Link + Image
+                        </div>
+                        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="mbl row hide">
+                <div class="card white">
+                    <div class="card-content">
+                        <div class="card-title"><h5>3. Image & Link</h5></div>
+                    </div>
+
+                </div>
+
+                <ul class="mbl_content collapsible  " data-collapsible="expandable">
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">filter_drama</i>Chèn ảnh vào trang web
+                        </div>
+                        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">place</i>Các loại đường dẫn</div>
+                        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">whatshot</i>Styling image</div>
+                        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                    </li>
+
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">whatshot</i>Chèn link vào trang web
+                        </div>
+                        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">whatshot</i>Pseudo Class</div>
+                        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">whatshot</i>Pseudo Element</div>
+                        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">whatshot</i>BT: Thực hành Link + Image
+                        </div>
+                        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                    </li>
+                </ul>
             </div>
 
+
         </div>
-        <div class="col s12 m4">
+        <div id="mr4_right" class="col s12 m4">
             <div id="row-right1">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
@@ -292,7 +429,7 @@
                     </div>
                     <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4"><h5>Đặng Quang Huy<i
-                            class="fa fa-times right"></i><h5></h5></span>
+                            class="fa fa-times right"></i></h5></span>
 
                         <p>Lập trình viên web tại Techmaster. Đã tham gia nhiều dự án gia công trên nền tảng PHP,
                             Nodejs, và
@@ -327,160 +464,239 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col s12">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="http://materializecss.com/images/sample-1.jpg">
-                            <span class="card-title">Card Title</span>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                                I am convenient because I require little markup to use effectively.</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">This is a link</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s12">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="http://materializecss.com/images/sample-1.jpg">
-                            <span class="card-title">Card Title</span>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                                I am convenient because I require little markup to use effectively.</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">This is a link</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
 
         </div>
     </div>
 </main>
 <footer>
+
+
+
+    <div id="footer__main" class="blue-grey darken-3 white-text   ">
+        <article class="fit-fixed">
+
+            <div class="row padding-top--half">
+
+                <div class="col m4 s12 footer_m4">
+                    <img alt="Logo__bottom" class="lighten-5" id="footer__logo" src="http://techmaster.vn/theme_resources/frontend/tech/img/logo.png" />
+                    <p> <i class="fa fa-map-marker"></i> Cơ sở 1:
+                        Số 14, ngõ 4, Nguyễn Đình Chiểu, Hai Bà Trưng, Hà Nội</p>
+                    <p>
+                        <i class="fa fa-map-marker"></i>  Cơ sở 2:
+                        Phòng 2304, tầng 23, toà nhà StarCity, 81 Lê Văn Lương, Nhân Chính, Thanh Xuân, Hà Nội
+                    </p>
+
+                    <div id="footer__company__links">
+
+                        <a href="https://www.facebook.com/techmastervn"><i class="fa fa-2x fa-facebook"></i>
+                        </a>
+                        <a href=""><i class="fa fa-2x fa-twitter"></i>
+                        </a>
+                        <a href=""><i class="fa fa-2x fa-instagram"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div class="col m8 s12 row ">
+                    <div class="col m4">
+                        <h5><strong>Về TechmasterVn</strong></h5>
+                        <ul>
+                            <li><a href="">Về chúng tôi</a></li>
+                            <li><a href="">Việc làm</a></li>
+                            <li><a href="">Thực tập</a></li>
+                            <li><a href="">Đặt câu hỏi cho chúng tôi</a></li>
+                            <li><a href="">Blog</a></li>
+                        </ul>
+
+                        <h5 class="margin-top--1"><strong>Tài nguyên</strong></h5>
+                        <ul>
+                            <li><a href="/articles">Arrowjs</a></li>
+                            <li><a href="/schools">Ebook</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col m8 s12">
+                        <h5><strong>Learn To Code</strong></h5>
+
+                        <div class='row'>
+
+                            <div class="col m7">
+                                <ul>
+                                    <li>
+                                        <a href="/skills/make-a-website">Lập trình iOS Objective-C</a>
+                                    </li>
+                                    <li>
+                                        <a href="/skills/make-an-interactive-website">Web cơ bản HTML5, CSS3 và Javascript</a>
+                                    </li>
+                                    <li>
+                                        <a href="/courses/learn-rails">Node.js xây dựng web site tốc độ cao</a>
+                                    </li>
+                                    <li>
+                                        <a href="/courses/rails-auth">Lập trình Arrowjs Core và CMS</a>
+                                    </li>
+                                    <li>
+                                        <a href="/courses/learn-angularjs">
+                                            Java căn bản thực hành</a>
+                                    </li>
+                                    <li>
+                                        <a href="/courses/learn-the-command-line">Learn the Command Line</a>
+                                    </li>
+                                    <li>
+                                        <a href="/courses/learn-sql">Learn SQL</a>
+                                    </li>
+                                    <li>
+                                        <a href="/courses/sql-analyzing-business-metrics">Lập trình Python ứng dụng thực tế</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                            <div class="col m5">
+                                <ul>
+                                    <li><a href="">HTML &amp; CSS</a></li>
+                                    <li><a href="">JavaScript</a></li>
+                                    <li><a href="">jQuery</a></li>
+                                    <li><a href="">PHP</a></li>
+                                    <li><a href="">Python</a></li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+
+
+
     <div class="fixed-action-btn vertical click-to-toggle" style="bottom: 15px; right: 25px;">
-        <a class="btn-floating btn-large waves-effect waves-light btn modal-trigger" href="#modal1"">
+        <a class="btn-floating btn-large waves-effect waves-light btn modal-trigger" href="#modal1">
         <i class="large material-icons">mode_edit</i>
         </a>
-        <!--<ul>-->
-        <!--<li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>-->
-        <!--<li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>-->
-
-        <!--<li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>-->
-
-        <!--<li><a class="btn-floating green" href="#main_row_1"><i class="material-icons">publish</i></a></li>-->
-        <!--</ul>-->
     </div>
 
 </footer>
 
 
+
 <!-- Modal Structure -->
 <div id="modal1" class="modal">
     <div class="modal-content">
-        <h4>Chọn khóa học</h4>
-
-        <ul class=" row " >
-            <li class="col s12 m4 collapsible" data-collapsible="expandable">
-                <div class="collapsible-header">Tiết kiệm</div>
-                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-            </li>
-            <li class="col s12 m4">
-                <div class="collapsible-header">Tiêu chuẩn</div>
-                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-            </li>
-            <li class="col s12 m4">
-                 <div class="collapsible-header">Thực tập
+        <div class="row">
+            <div class="s12 center-align"><img src="http://techmaster.vn/theme_resources/frontend/tech/img/logo.png" alt="Techmaster" title="Techmaster"></div>
+        </div>
+        <div class="row">
+            <div class="col s12  ">
+                <div class="mdl_form">
+                    <form action="" autocomplete="off" method="POST">
+                        <div class="input-field">
+                            <!--<i class="large material-icons prefix">email</i>-->
+                            <!-- Trik: **readonly onfocus="$(this).removeAttr('readonly');"** slouží k odstranění uložených přihlašovacích údajů prohlížečem -->
+                            <input type="email"  name="email" maxlength="30" class="validate" required>
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="input-field">
+                            <!--<i class="mdi-communication-vpn-key prefix"></i>-->
+                            <input type="password" id="heslo" name="heslo" maxlength="30" class="validate" required>
+                            <label for="pass">Password</label>
+                        </div>
+                        <div class="center-align mdl_button">
+                            <button type="submit" class="waves-effect waves-light btn mdl_submit"><i class="mdi-hardware-keyboard-arrow-left left"></i>Vào</button>
+                            <button type="button" class="waves-effect waves-light btn" id="registrace" onclick="show_form_register()"  ><i class="mdi-social-person-add left"></i>Đăng kí miễn phĩ</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-            </li>
+                <div class="mdl_form_register" style="display: none;">
+                    <form action="" autocomplete="off" method="POST">
+                        <div class="input-field">
+                            <!--<i class="large material-icons prefix">email</i>-->
+                            <!-- Trik: **readonly onfocus="$(this).removeAttr('readonly');"** slouží k odstranění uložených přihlašovacích údajů prohlížečem -->
+                            <input type="email" name="email" maxlength="30" class="validate" required>
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="input-field">
+                            <!--<i class="mdi-communication-vpn-key prefix"></i>-->
+                            <input type="password" name="pass" maxlength="30" class="validate" required>
+                            <label for="pass">Password</label>
+                        </div>
+                            <!--repassword-->
+                        <div class="input-field">
+                            <!--<i class="mdi-communication-vpn-key prefix"></i>-->
+                            <input type="password"  name="repass" maxlength="30" class="validate" required>
+                            <label for="repass">Repassword</label>
+                        </div>
 
-        </ul>
 
-            <div id="course_choose">
-                <form action="#">
-                <p>
-                    <input name="group1" type="radio" id="test1" checked />
-                    <label for="test1">Tiết kiệm</label>
-                </p>
-                <p>
-                    <input name="group1" type="radio" id="test2" />
-                    <label for="test2">Tiêu chuẩn</label>
-                </p>
-                <p>
-                    <input name="group1" type="radio" id="test3"  />
-                    <label for="test3">Thực tập</label>
-                </p>
+                       <div class="center-align">
+                           <div class="g-recaptcha" data-sitekey="6LcL0RITAAAAAGN_prn2qh7rGi9AS-3EtUPjhy7B"></div>
+                       </div>
 
-                </form>
+
+                        <div class="center-align mdl_button">
+                            <button class="waves-effect waves-light btn mdl_submit" onclick=""><i class="mdi-hardware-keyboard-arrow-left left"></i>Vào</button>
+                            <button type="button" class="waves-effect waves-light btn" id="registrace" onclick="show_form_login()" ><i class="mdi-social-person-add left"></i>Trở lại đăng nhập</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col s12 center-align">
+                <a href="#" class="">Quên mật khẩu?</a>
             </div>
         </div>
-
-
-
-
-        <!--<form class="col s12">-->
-            <!--<div class="row">-->
-                <!--<div class="input-field col s6">-->
-                    <!--<i class="material-icons prefix">account_circle</i>-->
-                    <!--<input id="icon_prefix" type="text" class="validate">-->
-                    <!--<label for="icon_prefix">First Name</label>-->
-                <!--</div>-->
-                <!--<div class="input-field col s6">-->
-                    <!--<i class="material-icons prefix">phone</i>-->
-                    <!--<input id="icon_telephone" type="tel" class="validate">-->
-                    <!--<label for="icon_telephone">Telephone</label>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</form>-->
-
     </div>
-    <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
+
 </div>
 
 
 <script>
 
-    //    $(document).ready(function(){
-    //        if($(window).width() < 600){
-    //            $("#center-title").removeClass("push-m3").removeClass("m6");
-    //            $("#center-title").addClass("push-s2").addClass("s8");
-    //
-    //        }
-    //        else{
-    //            $("#center-title").removeClass("push-s2").removeClass("s8");
-    //            $("#center-title").addClass("push-m3").addClass("m6");
-    //
-    //        }
-    //    });
+    function show_form_login(){
+        $(".mdl_form_register").hide(600);
+        $(".mdl_form").show(600);
 
+    }
+    function show_form_login1(){
+        $(".mdl_form_register").hide();
+        $(".mdl_form").show();
+
+    }
+    function show_form_register(){
+//        alert("dss");
+        $(".mdl_form").hide(600);
+        $(".mdl_form_register").show(600);
+    }
+    function show_form_register1(){
+//        alert("dss");
+        $(".mdl_form").hide();
+        $(".mdl_form_register").show();
+    }
+
+    function show_more(){
+        $(".hide").addClass("animated");
+        $(".hide").addClass("fadeInUp");
+        $(".mbl").removeClass("hide");
+
+        $(".show_more").addClass("hide");
+    }
 
     $(document).ready(function () {
-        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-//    $('.modal-trigger').leanModal();
-
-
         $('.modal-trigger').leanModal({
                     dismissible: true, // Modal can be dismissed by clicking outside of the modal
                     opacity: .6, // Opacity of modal background
                     in_duration: 300, // Transition in duration
                     out_duration: 200, // Transition out duration
+
+
                     ready: function () {
-                        alert('Ready');
+                        // alert('Ready');
                     }, // Callback for Modal open
                     complete: function () {
-                        alert('Closed');
+                        // alert('Closed');
                     } // Callback for Modal close
                 }
         );
